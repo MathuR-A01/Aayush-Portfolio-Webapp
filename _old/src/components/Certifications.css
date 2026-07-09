@@ -1,0 +1,195 @@
+.certifications {
+    position: relative;
+    background: var(--bg-secondary);
+}
+
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+/* Certificate Card */
+.cert-card {
+    position: relative;
+    border-radius: var(--radius-lg);
+    transition: var(--transition-medium);
+    height: 100%;
+}
+
+.cert-card:hover {
+    transform: translateY(-8px);
+}
+
+.cert-card-glow {
+    position: absolute;
+    inset: -1px;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(135deg, var(--cert-color, #7C3AED) 0%, transparent 50%, var(--cert-color, #7C3AED) 100%);
+    opacity: 0;
+    transition: var(--transition-medium);
+    z-index: 0;
+}
+
+.cert-card:hover .cert-card-glow {
+    opacity: 0.5;
+}
+
+.cert-card::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: var(--radius-lg);
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.25), transparent 40%, rgba(0, 229, 255, 0.25));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    transition: var(--transition-medium);
+}
+
+.cert-card:hover::after {
+    background: linear-gradient(135deg, var(--cert-color, #7C3AED), transparent 50%, var(--cert-color, #00E5FF));
+}
+
+.cert-card-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 28px;
+    background: rgba(17, 24, 39, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: var(--radius-lg);
+    height: 100%;
+}
+
+/* Ribbon */
+.cert-ribbon {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 14px;
+    border-radius: 50px;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Icon */
+.cert-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(124, 58, 237, 0.08);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    margin-bottom: 20px;
+    transition: var(--transition-fast);
+}
+
+.cert-icon {
+    font-size: 1.8rem;
+}
+
+.cert-card:hover .cert-icon-wrapper {
+    background: rgba(124, 58, 237, 0.15);
+    border-color: var(--border-color-hover);
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.15);
+}
+
+/* Content */
+.cert-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    line-height: 1.3;
+    transition: var(--transition-fast);
+}
+
+.cert-card:hover .cert-name {
+    background: linear-gradient(135deg, var(--cert-color, #7C3AED), #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.cert-description {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+/* Meta */
+.cert-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+}
+
+.cert-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.cert-meta-item svg {
+    color: var(--cert-color, #00E5FF);
+    flex-shrink: 0;
+}
+
+/* Badge */
+.cert-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: rgba(0, 229, 255, 0.06);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    border-radius: 50px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--accent-secondary);
+    letter-spacing: 0.5px;
+    width: fit-content;
+    text-shadow: 0 0 8px rgba(0, 229, 255, 0.2);
+}
+
+.cert-badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-secondary);
+    box-shadow: 0 0 6px var(--accent-secondary);
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1024px) {
+    .certifications-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .certifications-grid {
+        grid-template-columns: 1fr;
+    }
+}

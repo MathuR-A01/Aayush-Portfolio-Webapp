@@ -1,0 +1,150 @@
+.experience {
+    position: relative;
+    background: var(--bg-secondary);
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+}
+
+.timeline-section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent-secondary);
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+}
+
+.timeline-section-title svg {
+    opacity: 0.8;
+    filter: drop-shadow(0 0 4px var(--neon-cyan-glow));
+}
+
+/* Timeline */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    position: relative;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent-primary), rgba(124, 58, 237, 0.1));
+    box-shadow: 0 0 8px rgba(124, 58, 237, 0.2);
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 48px;
+}
+
+/* Timeline Marker */
+.timeline-marker {
+    position: absolute;
+    left: 0;
+    top: 20px;
+}
+
+.timeline-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--bg-primary);
+    border: 2px solid var(--accent-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-secondary);
+    z-index: 2;
+    position: relative;
+    transition: var(--transition-fast);
+    box-shadow: 0 0 10px rgba(124, 58, 237, 0.2);
+}
+
+.timeline-item:hover .timeline-dot {
+    box-shadow: var(--neon-purple);
+    border-color: var(--accent-secondary);
+}
+
+.timeline-item.education .timeline-dot {
+    border-color: var(--accent-tertiary);
+    color: var(--accent-tertiary);
+}
+
+.timeline-item.education:hover .timeline-dot {
+    box-shadow: var(--neon-pink);
+}
+
+/* Timeline Content */
+.timeline-content {
+    padding: 24px;
+}
+
+.timeline-period {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--accent-secondary);
+    letter-spacing: 0.5px;
+    display: inline-block;
+    padding: 4px 14px;
+    background: rgba(0, 229, 255, 0.08);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    border-radius: 20px;
+    margin-bottom: 12px;
+    text-shadow: 0 0 8px rgba(0, 229, 255, 0.2);
+}
+
+.timeline-item.education .timeline-period {
+    color: var(--accent-tertiary);
+    background: rgba(255, 77, 157, 0.08);
+    border-color: rgba(255, 77, 157, 0.2);
+    text-shadow: 0 0 8px rgba(255, 77, 157, 0.2);
+}
+
+.timeline-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--text-primary);
+}
+
+.timeline-company {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+}
+
+.timeline-description {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.timeline-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .experience-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
